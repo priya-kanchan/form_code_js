@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form code</title>
+</head>
+<body>
+    
+    <label>Select Gender</label>
+    <select id="gender" onchange="handleGenderChange()">
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select>
+
+    <input id="inputValue"
+    placeholder="Enter your gender" 
+    oninput="saveTheGender()"
+    style="display: none;"
+    />
+    <div id="result"></div>
+
+<script src="main.js"></script>
+
+<script>
+
+let finalGender="";
+
+function handleGenderChange(){
+    let gender=document.getElementById("gender").value;
+    let inputBox=document.getElementById("inputValue");
+    if(gender==="other"){
+        inputBox.style.display="block";
+        finalGender=""
+    }else{
+        inputBox.style.display="none";
+        inputBox.value="";
+        finalGender = gender;   
+        document.getElementById("result").innerText="selected:" + finalGender
+    }
+
+}
+
+function saveTheGender(){
+    finalGender=document.getElementById("inputValue").value;
+    document.getElementById("result").innerText="selected:" + finalGender
+    
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
